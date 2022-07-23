@@ -1,0 +1,15 @@
+template<typename T>
+void swapTetrades (T n, short int p1, short int p2) 
+{
+ T m =n;
+ T mask;   
+unsigned int tet1 = (m >> (p1*4)) & mask;
+unsigned int tet2 = (m >> (p2*4)) & mask;
+
+
+int mask1= mask<<(p1*4);
+int mask2= mask<<(p2*4);
+int mask3= ~(mask2|mask1);
+n = ((mask3&m) | ((tet1&mask) << (p2*4)) | ((tet2&mask) << (p1*4)));
+
+}
